@@ -55,12 +55,12 @@ module.exports.loop = function () {
             }
         }
         
-        if(availableEnergy >= 850) {
+        if(availableEnergy >= 550) {
             var numUpgraders = _.filter(Game.creeps, (c) => c.memory.role == 'upgrader').length;
             if(numUpgraders < 5) {
                 var creepName = 'UPG' + Math.random();
                 console.log('Built ' + creepName);
-                spawn1.spawnCreep([MOVE, MOVE, MOVE, MOVE, MOVE, WORK, WORK, WORK, WORK, CARRY, CARRY, CARRY, CARRY], creepName, {memory: {role: 'upgrader', targetSource: -1, spawn: spawnTime}});
+                spawn1.spawnCreep([MOVE, MOVE, WORK, WORK, WORK, CARRY, CARRY, CARRY], creepName, {memory: {role: 'upgrader', targetSource: -1, spawn: spawnTime}});
                 availableEnergy -= 850;
             } 
         }
